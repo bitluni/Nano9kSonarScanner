@@ -1,0 +1,31 @@
+Reading netlist file: "C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\gwsynthesis\SonarScanner.vg"
+Parsing netlist file "C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\gwsynthesis\SonarScanner.vg" completed
+Processing netlist completed
+Reading constraint file: "C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\src\SonarScanner.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+WARN  (TA1117) : Can't calculate clocks' relationship between: "chip_pll/rpll_inst/CLKOUTD.default_gen_clk" and "adcCs_d"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "adcCs_d" and "chip_pll/rpll_inst/CLKOUTD.default_gen_clk"
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\pnr\SonarScanner.power.html" completed
+Generate file "C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\pnr\SonarScanner.pin.html" completed
+Generate file "C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\pnr\SonarScanner.rpt.html" completed
+Generate file "C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\pnr\SonarScanner.rpt.txt" completed
+Generate file "C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\pnr\SonarScanner.tr.html" completed
+Sat Jan 14 00:49:55 2023
+

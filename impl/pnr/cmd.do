@@ -1,0 +1,12 @@
+-d C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\gwsynthesis\SonarScanner.vg
+-p GW1NR-9C-QFN88P-6
+-pn GW1NR-LV9QN88PC6/I5
+-cst C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\src\SonarScanner.cst
+-cfg C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\impl\pnr\device.cfg
+-sdc C:\Users\luni\Videos\FPGA\Docker\Volume\code\SonarScanner\src\SonarScanner.sdc
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-route_maxfan 23

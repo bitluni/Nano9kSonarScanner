@@ -1,0 +1,1 @@
+create_clock -name XTAL -period 37.037 -waveform {0 18.518} [get_ports {clk}] -add

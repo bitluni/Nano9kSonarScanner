@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="output"></p>
+
+<script>
+var output = document.getElementById("output");
+
+var sineTable = [];
+var cosineTable = [];
+for (var i = 0; i < 32; i++) {
+	let s = Math.round(Math.sin(i * (Math.PI / 16))*127);
+	sineTable.push(s);
+	let c = Math.round(Math.cos(i * (Math.PI / 16))*127);
+	cosineTable.push(c);
+}
+
+output.innerHTML = "localparam int8 sinTab[32] = {" + sineTable + "};<br>localparam int8 cosTab[32] = {" + cosineTable + "};";
+</script>
+
+</body>
+</html>
