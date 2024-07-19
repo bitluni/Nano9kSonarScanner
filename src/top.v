@@ -74,7 +74,7 @@ generate
     genvar i;
     for(i=0; i<8; i=i+1) begin : adcs
         ADC adc(
-                .clk(clk20480k),
+                .clk(clk),//20480k),
                 .adcData(adcData[i]),
                 .adcClk(WadcClk[i]),
                 .adcCs(WadcCs[i]),
