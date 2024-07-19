@@ -1,3 +1,5 @@
+//8bit read of NCD98010 / NCD98011
+//https://www.mouser.de/datasheet/2/308/1/NCD9801_D-2316646.pdf
 module ADC(
     input clk,
     input adcData,
