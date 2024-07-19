@@ -1,0 +1,49 @@
+<html>
+<body>
+
+<canvas id="myCanvas"></canvas>
+
+<br>
+
+<label for="phaseShift">Phase Shift:</label>
+<input type="range" min="0" max="360" value="0" class="slider" id="phaseShift">
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+var amplitude1 = 100;
+var frequency1 = 0.1;
+var phase1 = 0;
+
+var amplitude2 = 100;
+var frequency2 = 0.1;
+var phase2 = 0;
+
+var phaseShiftSlider = document.getElementById("phaseShift");
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    phase2 = phaseShiftSlider.value;
+
+    for (var x = 0; x < canvas.width; x+=1) {
+        var y11 = amplitude1 * Math.sin(frequency1 * x + phase1 / (2 * Math.PI));
+        var y12 = amplitude1 * Math.cos(frequency1 * x + phase1 / (2 * Math.PI));
+        var y21 = amplitude2 * Math.sin(frequency2 * x + phase2 / (2 * Math.PI));
+        var y22 = amplitude2 * Math.cos(frequency2 * x + phase2 / (2 * Math.PI));
+        var y = y11 + y21;
+
+        ctx.fillRect(x, canvas.height / 2.0 + y / 2, 2, 2);
+    }
+}
+
+draw();
+
+phaseShiftSlider.oninput = function() {
+    draw();
+}
+</script>
+
+</body>
+</html>

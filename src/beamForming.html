@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pixel Canvas</title>
+</head>
+<body>
+  <canvas id="myCanvas"></canvas>
+
+  <script>
+  
+  
+	const speed = 343000; //mm per second
+	const mm2pix = 8/10;
+	const pix2mm = 1/mm2pix;
+	const xs = 400;
+	const ys = 240;
+	const sensorCount = 8;
+	const sensorDistance = 10;
+	const sonsorDistancePix = sensorDistance * mm2pix;
+	const samplingRate = 1280000;
+	const maxDistance = ys * pix2mm;
+	const maxDistanceDiag = maxDistance * Math.sqrt(2);
+	const maxTime = (maxDistanceDiag * 2) / speed;//reflection take twice as long
+	const sampleCount = maxTime * samplingRate;
+	const pix2sa = sampleCount / ys;
+	const sa2pix = 1/pix2sa;
+	const bitCount = sampleCount * 8 * sensorCount;
+	const x0 = Math.round(xs * 0.5 - (sensorCount - 1) * 0.5);
+	const y0 = 0;
+	const maxSamples = 7312;
+	let table = [];
+	
+	for(let i = 0; i < ys; i++)
+	{
+		let xt = [];
+		for(let j = 0; j < ys; j++)
+			xt.push(Math.round(Math.sqrt(i*i + j*j) * pix2sa));
+		table.push(xt);
+	}
+	
+    // Get the canvas element
+    var canvas = document.getElementById("myCanvas");
+
+    // Get the 2D rendering context
+    var ctx = canvas.getContext("2d");
+
+    // Set the width and height of the canvas
+    canvas.width = xs;
+    canvas.height = ys;
+
+    // Set the color of the pixel at (x, y) to red
+    function setPixel(x, y, r, g, b) {
+      ctx.fillStyle = "rgb("+Math.round(r)+","+Math.round(g)+","+Math.round(b)+")";
+      ctx.fillRect(x, y, 1, 1);
+    }
+
+    // Render the pixels
+    for (var x = 0; x < xs; x++) {
+      for (var y = 0; y < ys; y++) {
+		let dx = Math.abs(x - x0);
+		let dy = Math.abs(y - y0);
+        //setPixel(x, y, 255 - y%10, 0, 0);
+		setPixel(x, y, (table[Math.min(dx,479)][dy] % 32) * 8, 0, 0);
+      }
+    }
+	
+	for(let i = 0; i < sensorCount; i++)
+        setPixel(x0 + i * sonsorDistancePix, y0, 0, 0, 255);
+	console.log(table);
+	console.log("Distance: " + maxDistance + "mm");
+	console.log("Return time: " + maxTime + "s");
+	console.log("Samples: " + sampleCount);
+	console.log("Bits: " + bitCount);
+	console.log("Samples per pixel: " + pix2sa)
+  </script>
+</body>
+</html>
